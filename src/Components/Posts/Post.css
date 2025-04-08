@@ -1,0 +1,159 @@
+/* Post.css - OLX style card design */
+
+.postParentDiv {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-left: 5px;
+  padding: 10px 16px;
+}
+
+.moreView {
+  margin: 16px 0px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 12px;
+}
+
+.heading span {
+  font-weight: 500;
+}
+
+.heading span:first-child {
+  font-size: 24px;
+  color: #002f34;
+}
+
+.heading span:last-child {
+  font-size: 14px;
+  color: #00a49f;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  border: 1px solid #cecdce;
+  width: 220px;
+  height: 280px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favorite {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.favorite svg {
+  stroke: #002f34;
+  stroke-width: 10px;
+  width: 20px;
+  height: 20px;
+  fill: rgba(27, 27, 27, 0.8);
+}
+
+.favorite svg:hover {
+  fill: #ff4131;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+  background-color: #ffffff;
+}
+
+.image img {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.content {
+  padding: 10px;
+}
+
+.rate {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #002f34;
+}
+
+.kilometer {
+  font-size: 12px;
+  color: #5b7381;
+  margin-top: 3px;
+  display: inline-block;
+}
+
+.name {
+  font-size: 14px;
+  color: #002f34;
+  margin: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px 10px;
+}
+
+.date span {
+  font-size: 11px;
+  color: #7f9799;
+}
+
+.recommendations {
+  margin: 30px 0;
+}
+
+/* Featured listings style */
+.recommendations .heading span {
+  font-size: 24px;
+  color: #002f34;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .cards {
+    justify-content: center;
+  }
+  
+  .card {
+    width: calc(50% - 15px);
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    max-width: none;
+  }
+}

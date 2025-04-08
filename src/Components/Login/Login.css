@@ -1,0 +1,61 @@
+  .login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loginParentDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 10px; 
+    width: 400px;
+  }
+  
+  .loginParentDiv form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
+  .loginParentDiv .input {
+    width: 350px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    padding-left: 5px;
+    transition: transform 0.19s;
+  }
+  
+  .loginParentDiv .input:hover{
+    transform: scale(1.01);
+  }
+  
+  .loginParentDiv button {
+    color: white;
+    background-color: rgb(16, 162, 241);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 40px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+  }
+  .loginParentDiv button:hover {
+    transform: scale(1.01);
+  }
+  
+  .loginParentDiv a {
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  
+  .loginParentDiv a:hover{
+    transform: scale(0.95);
+  }

@@ -1,0 +1,177 @@
+/* View.css - Attractive design for product view page */
+
+.viewParentDiv {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+  gap: 24px;
+  min-height: 500px;
+  position: relative;
+  top: 80px;
+}
+
+/* Left side - Image section */
+.imageShowDiv {
+  width: 65%;
+  background-color: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imageShowDiv img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 500px;
+}
+
+/* Right side - Product info and seller details */
+.rightSection {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Product details section */
+.productDetails {
+  padding: 20px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.productDetails p:first-child {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #002f34;
+}
+
+.productDetails span:nth-child(2) {
+  font-size: 22px;
+  font-weight: 500;
+  color: #002f34;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.productDetails p:nth-child(3) {
+  font-size: 16px;
+  color: #5b7381;
+  margin: 0 0 16px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ebeeef;
+}
+
+.productDetails span:last-child {
+  font-size: 12px;
+  color: #7f9799;
+  display: block;
+}
+
+/* Seller details section */
+.contactDetails {
+  padding: 20px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contactDetails p:first-child {
+  font-size: 20px;
+  font-weight: 500;
+  color: #002f34;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ebeeef;
+}
+
+.contactDetails p:nth-child(2) {
+  font-size: 16px;
+  color: #002f34;
+  margin: 0 0 8px 0;
+}
+
+.contactDetails p:last-child {
+  font-size: 16px;
+  color: #002f34;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Additional elements for enhanced visual appeal */
+.productDetails::before {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 60px;
+  background-color: #00a49f;
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .viewParentDiv {
+    flex-direction: column;
+  }
+
+  .imageShowDiv,
+  .rightSection {
+    width: 100%;
+  }
+
+  .imageShowDiv {
+    height: 300px;
+  }
+}
+
+/* Active state for seller contact */
+.contactDetails:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Add a badge for premium posts (optional) */
+.imageShowDiv::after {
+  content: 'FEATURED';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: #ffce32;
+  color: #002f34;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 4px;
+  /* Uncomment to enable the featured badge */
+  /* display: block; */
+  display: none;
+}
+
+/* Create button styles for actions like "Contact Seller" */
+.actionButton {
+  display: inline-block;
+  background-color: #002f34;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+
+.actionButton:hover {
+  background-color: #00434b;
+}
