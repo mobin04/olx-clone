@@ -11,12 +11,26 @@ const Create = () => {
   const [name, setName] = useState('');
   const [category, setCatagory] = useState('');
   const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
   const [img, setImg] = useState(null);
   const { db, storage } = useContext(FirebaseContext);
   const { user } = useContext(AuthContext);
   const Navigate = useNavigate();
   const date = new Date();
   const [load, setLoad] = useState(false);
+  const categories = [
+    'Two Wheeler',
+    'Four Wheeler',
+    'Mobile',
+    'Laptop',
+    'Furniture',
+    'Property',
+    'Cloths',
+    'Bycycle',
+    'Tablets',
+    'Spare Parts',
+    'Accessories',
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +48,7 @@ const Create = () => {
         name,
         category,
         price,
+        description: description || null,
         url: imageUrl,
         user_id: user.uid,
         createAt: date.toDateString(),
@@ -52,63 +67,77 @@ const Create = () => {
   return (
     <Fragment>
       <Header />
-        <div className="centerDiv">
+      <div className="centerDiv">
         {load && <Loader />}
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="fname">Name</label>
-            <br />
-            <input
-              className="input"
-              type="text"
-              id="fname"
-              value={name}
-              onChange={(e) => setName(e.target.value.toUpperCase())}
-              name="Name"
-              required
-            />
-            <br />
-            <label htmlFor="fname">Category</label>
-            <br />
-            <input
-              className="input"
-              type="text"
-              id="fname"
-              value={category}
-              onChange={(e) => setCatagory(e.target.value)}
-              name="category"
-              required
-            />
-            <br />
-            <label htmlFor="fname">Price</label>
-            <br />
-            <input
-              className="input"
-              type="number"
-              id="fname"
-              name="Price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-            <br />
-            <img
-              alt="Posts"
-              width="200px"
-              height="200px"
-              src={img ? URL.createObjectURL(img) : null}
-            />
-            <br />
-            <input
-              onChange={(e) => setImg(e.target.files[0])}
-              type="file"
-              required
-            />
-            <br />
-            <button type="submit" className="uploadBtn">
-              Upload and Submit
-            </button>
-          </form>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="fname">Name</label>
+          <br />
+          <input
+            className="input"
+            type="text"
+            id="fname"
+            value={name}
+            onChange={(e) => setName(e.target.value.toUpperCase())}
+            name="Name"
+            required
+          />
+          <br />
+          <label htmlFor="fname">Category</label>
+          <br />
+          <select
+            className="input"
+            value={category}
+            onChange={(e) => setCatagory(e.target.value)}
+            required
+          >
+            <option value="">-- Others --</option>
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+          <br />
+          <label htmlFor="description">Description (optional)</label>
+          <br />
+          <textarea
+            className="description"
+            name="description"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+          <br />
+          <label htmlFor="fname">Price</label>
+          <br />
+          <input
+            className="input"
+            type="number"
+            id="fname"
+            name="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+          <br />
+          <img
+            alt="Posts"
+            width="200px"
+            height="200px"
+            src={img ? URL.createObjectURL(img) : null}
+          />
+          <br />
+          <input
+            onChange={(e) => setImg(e.target.files[0])}
+            type="file"
+            required
+          />
+          <br />
+          <button type="submit" className="uploadBtn">
+            Upload and Submit
+          </button>
+        </form>
+      </div>
     </Fragment>
   );
 };

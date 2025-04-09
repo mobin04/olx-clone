@@ -47,6 +47,7 @@ function View() {
           <p>&#x20B9; {details.price}</p>
           <span>{details.name}</span>
           <p>{details.category}</p>
+          <p>{details.description}</p>
           <span>{details.createAt}</span>
         </div>
         <div className="contactDetails">

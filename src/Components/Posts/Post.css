@@ -28,11 +28,13 @@
   color: #002f34;
 }
 
-.heading span:last-child {
+/* .heading span:last-child {
+  position: relative;
+  right: 5px;
   font-size: 14px;
   color: #00a49f;
   cursor: pointer;
-}
+} */
 
 .cards {
   display: flex;

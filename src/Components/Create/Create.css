@@ -28,7 +28,7 @@ label {
 
 }
 
-.input {
+.input,.description {
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 12px 15px;
@@ -38,6 +38,12 @@ label {
 }
 
 .input:focus {
+  border-color: #4a80f5;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 128, 245, 0.2);
+}
+
+.description:focus {
   border-color: #4a80f5;
   outline: none;
   box-shadow: 0 0 0 2px rgba(74, 128, 245, 0.2);
