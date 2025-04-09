@@ -14,6 +14,7 @@ import Post from './store/PostContext';
  * ?  =====Import Components=====
  */
 import Home from './Pages/Home';
+import { AllProductData } from './store/AllProductData';
 
 function App() {
   const { auth } = useContext(FirebaseContext);
@@ -27,15 +28,17 @@ function App() {
 
   return (
     <div>
-      <Post>
-      <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/sell" element={<Create />} />
-          <Route path="/view" element={<View />} />
-      </Routes>
-      </Post>
+      <AllProductData>
+        <Post>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/sell" element={<Create />} />
+            <Route path="/view" element={<View />} />
+          </Routes>
+        </Post>
+      </AllProductData>
     </div>
   );
 }

@@ -95,9 +95,6 @@
   margin-right: 5px;
 }
 
-.language svg {
-}
-
 .span {
   text-decoration: none;
   font-size: 16px;
@@ -161,5 +158,112 @@
   .productSearch,
   .sellMenu {
     display: none;
+  }
+}
+
+/*--------------------------For search----------------------------*/
+
+.popup-modal {
+  position: fixed;       
+  top: 60px;     
+  left: 0;              
+  width: 100%;
+  max-height: calc(100% - 0px);
+  background-color: white;
+  overflow-x: auto;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.popup-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: white;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.popup-content img{
+  width: 150px;
+  margin-right: 10px;
+}
+
+.product-name,.product-catogory,.product-price {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.price-container{
+  width: 250px;
+  position: relative;
+  left: 40px;
+}
+
+.price-container p,button{
+  margin: 0;
+}
+
+.product-description{
+  width: 50%;
+  margin-left: 10px;
+  color: rgb(54, 54, 54);
+  font-size: 13px;
+}
+
+.price-container button{
+  margin-top: 10px;
+  border: none;
+  background-color: rgb(16, 128, 219);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: transform,box-shadow 0.15s;
+  margin-right: 5px;
+}
+
+.price-container button:hover{
+  transform: scale(1.01);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  background-color: rgb(13, 111, 190);
+}
+
+.search-title-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.search-title-container button{
+  margin-right: 20px;
+  border: none;
+  background-color: #111;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 12px;
+}
+
+.search-title-container h2{
+  margin-left: 20px;
+}
+
+
+@media only screen and (max-width: 700px) {
+  .product-description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
   }
 }

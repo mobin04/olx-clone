@@ -6,11 +6,13 @@ import { FirebaseContext } from '../../store/Context';
 import { collection, getDocs, getDocsFromServer } from 'firebase/firestore';
 import { PostContext } from '../../store/PostContext';
 import { useNavigate } from 'react-router-dom';
+import { ProductDataContext } from '../../store/AllProductData';
 
 function Posts() {
   const [products, setProducts] = useState({});
   const { db } = useContext(FirebaseContext);
   const { setPostDetails } = useContext(PostContext);
+  const {setAllProduct} = useContext(ProductDataContext)
   const Navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ function Posts() {
         acc[category].push(product);
         return acc;
       }, {});
-
+      setAllProduct(grouped);
       setProducts(grouped);
     };
 

@@ -7,15 +7,12 @@ import { FirebaseContext } from './store/Context.jsx';
 import { app, auth, db, storage } from './firebase/config.jsx';
 import { AuthProvider } from './store/Context.jsx';
 
-
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <AuthProvider>
-      <FirebaseContext.Provider value={{ auth, db, app, storage }}>
-
-          <App/>
-
-      </FirebaseContext.Provider>
+        <FirebaseContext.Provider value={{ auth, db, app, storage }}>
+          <App />
+        </FirebaseContext.Provider>
     </AuthProvider>
   </BrowserRouter>
 );
