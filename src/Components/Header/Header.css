@@ -164,106 +164,171 @@
 /*--------------------------For search----------------------------*/
 
 .popup-modal {
-  position: fixed;       
-  top: 60px;     
-  left: 0;              
+  position: fixed; /* stays on top of the page */
+  top: 70px;       /* adjust to your header height */
+  left: 0;
   width: 100%;
-  max-height: calc(100% - 0px);
+  max-height: calc(100vh - 70px); /* scroll only inside modal */
   background-color: white;
-  overflow-x: auto;
-  padding: 10px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  overflow-y: auto;  /* scroll only modal, not background */
+  z-index: 1000;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
 }
 
-.popup-content {
+.search-title-container {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  background: white;
-  margin-bottom: 5px;
-  padding: 10px;
-}
-
-.popup-content img{
-  width: 150px;
-  margin-right: 10px;
-}
-
-.product-name,.product-catogory,.product-price {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.img-container {
-  display: flex;
   align-items: center;
-
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
 }
 
-.price-container{
-  width: 250px;
-  position: relative;
-  left: 40px;
-}
-
-.price-container p,button{
+.search-title-container h2 {
   margin: 0;
+  font-size: 1.4rem;
 }
 
-.product-description{
-  width: 50%;
-  margin-left: 10px;
-  color: rgb(54, 54, 54);
-  font-size: 13px;
-}
-
-.price-container button{
-  margin-top: 10px;
+.close-btn {
+  background-color: transparent;
   border: none;
-  background-color: rgb(16, 128, 219);
-  color: white;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.9rem;
   padding: 5px 10px;
-  border-radius: 5px;
-  transition: transform,box-shadow 0.15s;
-  margin-right: 5px;
+  border-radius: 4px;
 }
 
-.price-container button:hover{
-  transform: scale(1.01);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-  background-color: rgb(13, 111, 190);
+.close-btn:hover {
+  background-color: #f0f0f0;
+  color: #333;
 }
 
-.search-title-container{
-  width: 100%;
+.search-results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-card {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.product-image {
+  width: 30%;
+  min-width: 150px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+}
+
+.product-info {
+  width: 70%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.product-description {
+  margin-bottom: 15px;
+  color: #555;
+  flex-grow: 1;
+}
+
+.product-details {
+  display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #c8c8c8;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
 }
 
-.search-title-container button{
-  margin-right: 20px;
-  border: none;
-  background-color: #111;
+.product-metadata {
+  display: flex;
+  gap: 20px;
+}
+
+.product-category, .product-price {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.label {
+  font-weight: 500;
+  color: #333;
+}
+
+.details-btn {
+  background-color: #3498db;
   color: white;
-  border-radius: 5px;
-  padding: 6px 12px;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
 }
 
-.search-title-container h2{
-  margin-left: 20px;
+.details-btn:hover {
+  background-color: #2980b9;
 }
 
+.no-results {
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+}
 
-@media only screen and (max-width: 700px) {
-  .product-description{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 250px;
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .product-card {
+    flex-direction: column;
+  }
+  
+  .product-image {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .product-info {
+    width: 100%;
+  }
+  
+  .product-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .product-metadata {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .details-btn {
+    width: 100%;
   }
 }

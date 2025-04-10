@@ -72,8 +72,8 @@ function Header() {
               placeholder="Find car,mobile phone and more..."
               value={searchText}
               onChange={(e) => {
-                setSearchText(e.target.value)
-                searchText.length > 1 ? handleSearch() : ''
+                setSearchText(e.target.value);
+                searchText.length > 1 ? handleSearch() : '';
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') handleSearch();
@@ -130,43 +130,57 @@ function Header() {
         <div className="popup-modal">
           <div className="search-title-container">
             <h2>Search Result</h2>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
+            <button className="close-btn" onClick={() => setShowModal(false)}>
+              Cancel
+            </button>
           </div>
-          {searchResults.length > 0?searchResults.map((product) => {
-            return (
-              <div className="popup-content" key={product.id}>
-                <div className="img-container">
-                  <img src={product.url} />
-                  <h4 className="product-name">{product.name}</h4>
-                  <p className="product-description">{product.description}</p>
-                </div>
-                <div className="price-container">
-                  <p className="product-catogory">
-                    <span style={{ fontWeight: 500 }}>Catogory: </span>
-                    {product.category}
-                  </p>
-                  <p className="product-price">
-                    <span style={{ fontWeight: 500 }}>Price: </span>
-                    {product.price}
-                  </p>
-                  <div>
-                    <button
-                      onClick={() => {
-                        setPostDetails(product);
-                        localStorage.setItem(
-                          'postDetails',
-                          JSON.stringify(product)
-                        );
-                        Navigate('/view');
-                      }}
-                    >
-                      More details
-                    </button>
+
+          {searchResults.length > 0 ? (
+            <div className="search-results-container">
+              {searchResults.map((product) => (
+                <div className="product-card" key={product.id}>
+                  <div className="product-image">
+                    <img src={product.url} alt={product.name} />
+                  </div>
+
+                  <div className="product-info">
+                    <h4 className="product-name">{product.name}</h4>
+                    <p className="product-description">{product.description}</p>
+
+                    <div className="product-details">
+                      <div className="product-metadata">
+                        <p className="product-category">
+                          <span className="label">Category: </span>
+                          {product.category}
+                        </p>
+                        <p className="product-price">
+                          <span className="label">Price: </span>
+                          {product.price}
+                        </p>
+                      </div>
+                      <button
+                        className="details-btn"
+                        onClick={() => {
+                          setPostDetails(product);
+                          localStorage.setItem(
+                            'postDetails',
+                            JSON.stringify(product)
+                          );
+                          Navigate('/view');
+                        }}
+                      >
+                        More details
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          }): <h3>No Result Found</h3> }
+              ))}
+            </div>
+          ) : (
+            <div className="no-results">
+              <h3>No Results Found</h3>
+            </div>
+          )}
         </div>
       )}
     </div>
